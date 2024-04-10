@@ -46,7 +46,7 @@
                         <div class="parent-icon"><i class='bx bx-home-alt'></i>
                         </div>
                         <div class="menu-title">Home</div>
-                    </a>za 
+                    </a>
                 </li>
                
                 <li>
@@ -58,7 +58,7 @@
                 </li>
                 
                 <li>
-                    <a href="javascript:;">
+                    <a href="/item">
                         <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
                         </div>
                         <div class="menu-title">Search</div>
@@ -100,9 +100,9 @@
                     <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
                     </div>
 
-                    <div class="search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
+                    <div class=" d-lg-block center" data-bs-toggle="modal">
                         <a href="avascript:;" class="btn d-flex align-items-center"><i
-                                class='bx bx-search'></i>Search</a>
+                                class='bx'></i><h4>UR FOUND</h4></a>
                     </div>
 
 
