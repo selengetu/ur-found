@@ -46,11 +46,11 @@
                         <div class="parent-icon"><i class='bx bx-home-alt'></i>
                         </div>
                         <div class="menu-title">Home</div>
-                    </a>
+                    </a>za 
                 </li>
                
                 <li>
-                    <a href="javascript:;">
+                    <a href="/example">
                         <div class="parent-icon"><i class="bx bx-category"></i>
                         </div>
                         <div class="menu-title">Report</div>
@@ -72,14 +72,7 @@
                         </div>
                         <div class="menu-title">Claim</div>
                     </a>
-                    <ul>
-                        <li> <a href="icons-line-icons.html"><i class='bx bx-radio-circle'></i>Line Icons</a>
-                        </li>
-                        <li> <a href="icons-boxicons.html"><i class='bx bx-radio-circle'></i>Boxicons</a>
-                        </li>
-                        <li> <a href="icons-feather-icons.html"><i class='bx bx-radio-circle'></i>Feather Icons</a>
-                        </li>
-                    </ul>
+                 
                 </li>
                 <li>
                     <a href="javascript:;">
@@ -87,45 +80,7 @@
                         </div>
                         <div class="menu-title">Public Safety</div>
                     </a>
-                    <ul>
-                        <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Basic</a>
-                            <ul>
-                                <li><a href="auth-basic-signin.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Sign In</a></li>
-                                <li><a href="auth-basic-signup.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Sign Up</a></li>
-                                <li><a href="auth-basic-forgot-password.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                                <li><a href="auth-basic-reset-password.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Reset Password</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Cover</a>
-                            <ul>
-                                <li><a href="auth-cover-signin.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Sign In</a></li>
-                                <li><a href="auth-cover-signup.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Sign Up</a></li>
-                                <li><a href="auth-cover-forgot-password.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                                <li><a href="auth-cover-reset-password.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Reset Password</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>With Header
-                                Footer</a>
-                            <ul>
-                                <li><a href="auth-header-footer-signin.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Sign In</a></li>
-                                <li><a href="auth-header-footer-signup.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Sign Up</a></li>
-                                <li><a href="auth-header-footer-forgot-password.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                                <li><a href="auth-header-footer-reset-password.html" target="_blank"><i
-                                            class='bx bx-radio-circle'></i>Reset Password</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                 
                 </li>
                 <li>
                     <a href="user-profile.html">
