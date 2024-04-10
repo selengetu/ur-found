@@ -67,7 +67,7 @@
                 </li>
             
                 <li>
-                    <a href="javascript:;">
+                    <a href="/claim">
                         <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
                         </div>
                         <div class="menu-title">Claim</div>
