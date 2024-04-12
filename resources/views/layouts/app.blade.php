@@ -50,7 +50,7 @@
                 </li>
                
                 <li>
-                    <a href="/example">
+                    <a href="/report">
                         <div class="parent-icon"><i class="bx bx-category"></i>
                         </div>
                         <div class="menu-title">Report</div>
@@ -82,13 +82,7 @@
                     </a>
                  
                 </li>
-                <li>
-                    <a href="user-profile.html">
-                        <div class="parent-icon"><i class="bx bx-user-circle"></i>
-                        </div>
-                        <div class="menu-title">User Profile</div>
-                    </a>
-                </li>
+              
             </ul>
             <!--end navigation-->
         </div>

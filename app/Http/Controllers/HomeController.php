@@ -39,4 +39,8 @@ class HomeController extends Controller
     {
         return view('claim');
     }
+    public function report()
+    {
+        return view('report');
+    }
 }
