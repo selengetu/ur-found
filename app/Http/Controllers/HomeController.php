@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -33,7 +34,10 @@ class HomeController extends Controller
 
     public function item()
     {
-        return view('item');
+        $campus = DB::table('campus')->orderby('id')->get();
+        $category = DB::table('category')->orderby('id')->get();
+        $item = DB::table('v_lost_items')->orderby('id')->get();
+        return view('item')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
     }
     public function claim()
     {
