@@ -20,7 +20,7 @@
 	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
 </head>
 
-<body class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+<body class="pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
   <div class="pace-progress-inner"></div>
 </div>
 <div class="pace-activity"></div></div>
@@ -41,19 +41,22 @@
 										<p class="mb-0">Please fill the below details to create your account</p>
 									</div>
 									<div class="form-body">
-										<form class="row g-3">
+                                        <form method="POST" action="{{ route('register') }}">
+                                        @csrf
 											<div class="col-12">
 												<label for="inputUsername" class="form-label">Username</label>
-												<input type="email" class="form-control" id="inputUsername" placeholder="Jhon">
+                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
 											</div>
 											<div class="col-12">
 												<label for="inputEmailAddress" class="form-label">Email Address</label>
-												<input type="email" class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 											</div>
 											<div class="col-12">
 												<label for="inputChoosePassword" class="form-label">Password</label>
 												<div class="input-group" id="show_hide_password">
-													<input type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password"> <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
 												</div>
 											</div>
 										
@@ -108,6 +111,4 @@
 	</script>
 	<!--app JS-->
 	<script src="assets/js/app.js"></script>
-
-
 </body></html>

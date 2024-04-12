@@ -14,9 +14,13 @@ Route::middleware('guest')->group(function () {
 
 // Middleware for authenticated users, if user is not logged in, redirect to the login page.
 Route::middleware('auth')->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
     Route::get('/example', [App\Http\Controllers\HomeController::class, 'example'])->name('example');
     Route::get('/item', [App\Http\Controllers\HomeController::class, 'item'])->name('item');
     Route::get('/claim', [App\Http\Controllers\HomeController::class, 'claim'])->name('claim');
     // Add other routes here that require the user to be authenticated.
+    Route::get('/logout', function(){
+        Auth::logout();
+        return redirect('/');
+    })->name('logout');
 });
