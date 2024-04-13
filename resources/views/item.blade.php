@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
+<div class=row>
+	<div class="col-md-3">
+	<div class="card">
 <div class="border border-3 p-4 rounded">
                               <div class="row g-3">
-								<div class="col-md-3">
+							  <label for="inputPrice" class="form-label"><h4>Filter</h4></label>
+								<div class="col-md-12">
 									<label for="inputPrice" class="form-label">Category</label>
 									<select class="form-select" id="inputProductType">
 									@foreach($category as $categories)
@@ -12,7 +15,7 @@
                                     @endforeach
 									  </select>
 								  </div>
-								  <div class="col-md-3">
+								  <div class="col-md-12">
 									<label for="inputCompareatprice" class="form-label">Location</label>
 									<select class="form-select" id="inputProductType">
 									@foreach($campus as $campus)
@@ -20,58 +23,68 @@
                                     @endforeach
 									  </select>
 								  </div>
-								  <div class="col-md-3">
+								  <div class="col-md-12">
 									<label for="inputCostPerPrice" class="form-label">Lost Date</label>
 									<input type="date" class="form-control" id="inputCostPerPrice">
+								  </div>
+								  <div class="mb-2">
+									  <div class="d-grid">
+                                         <button type="button" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">View result</button>
+									  </div>
 								  </div>
 							  </div> 
 						  </div>
 
 </div>
-    <div class="card">
+	</div>
+	<div class="col-md-8">
+	<div class="card">
 					<div class="card-body">
 						
-						<div class="table-responsive">
-							<table class="table mb-0">
-								<thead class="table-light">
-									<tr>
-										<th>№</th>
-										<th>Category</th>
-										<th>Item</th>
-										<th>Description</th>
-										<th>Date</th>
-										<th>On</th>
-										<th>Status</th>
-										<th>Picture</th>
-										<th>Actions</th>
-									</tr>
-								</thead>
-								<tbody>
+					
 								<?php $no = 1; ?>
                                     @foreach($item as $items)
-                                        <tr>
-                                            <td>{{$no}}</td>
-											<td>{{$items->name}}</td>
-                                            <td>{{$items->item_title}}</td>
-                                            <td>{{$items->description}}</td>
-                                            <td>{{$items->location_name}}</td>
-											<td>{{$items->lost_date}}</td>
-                                            <td>{{$items->status_name}}</td>
-                                            <td><img src="{{$items->img_path}}" alt="product img" style="width:200px"/></td>
-											<td><div class="d-flex order-actions">
-												<a href="javascript:;" class=""><i class="bx bxs-edit"></i></a>
-												<a href="javascript:;" class="ms-3"><i class="bx bxs-trash"></i></a>
-											</div>   </td>
-											  
-                                        </tr>
-                                        <?php $no++; ?>
-                                    @endforeach
-								</tbody>
-							</table>
-						</div>
+										<div class="card">
+								<div class="border border-3 p-4 rounded">
+                              <div class="row g-3">
+							  <img src="{{$items->img_path}}" alt="product img" style="width:100%"/>
+								<div class="col-md-12">
+									<label for="inputPrice" class="form-label"><b>Category</b>: {{$items->name}}</label>
+								  </div>
+								  <div class="col-md-12">
+									<label for="inputCompareatprice" class="form-label"><b>Description</b>: {{$items->description}}</label>
+								  </div>
+								  <div class="col-md-12">
+									<label for="inputCostPerPrice" class="form-label"><b>Lost Date</b>: {{$items->lost_date}}</label>
+								  </div>
+								  <div class="col-md-12">
+									<label for="inputCostPerPrice" class="form-label"><b>On</b>: {{$items->location_name}}</label>
+								  </div>
+								  <div class="col-md-12">
+									<label for="inputCostPerPrice" class="form-label"><b>Status</b>: {{$items->status_name}}</label><br>
+									
+								  </div>
+								  <div class="col-md-9">
+									<label for="inputCostPerPrice" class="form-label"><b>Posted at</b>: {{$items->lost_date}}</label><br>
+									
+								  </div>
+								  <div class="col-md-3">
+									  <div class="d-grid">
+                                         <button type="button" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">Claim</button>
+									  </div>
+								  </div>
+							  </div> 
+						  </div>
+
+</div>
+                                    @endforeach	
 					</div>
 				</div>
 
+	</div>
+</div>
+
+   
 @endsection
 
 @section('scripts')

@@ -38,7 +38,7 @@
 								  </div>
 								  <div class="mb-3">
 									  <div class="d-grid">
-                                         <button type="button" class="btn btn-primary">Submit</button>
+                                         <button type="button" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">Submit</button>
 									  </div>
 								  </div>
                             </div>

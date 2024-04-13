@@ -31,10 +31,10 @@
     <!--wrapper-->
     <div class="wrapper">
         <!--sidebar wrapper -->
-        <div class="sidebar-wrapper" data-simplebar="true">
-            <div class="sidebar-header">
+        <div class="sidebar-wrapper" data-simplebar="true" style="background: #00205BFF; color:white;">
+            <div class="sidebar-header" style="background: #00205BFF; ">
                 <div>
-                    <img src="/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+                    <img src="/assets/images/logo_transparent.png" class="logo-icon" alt="logo icon">
                 </div>
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
                 </div>
@@ -42,7 +42,7 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="/">
+                    <a href="/" style=" color:white;">
                         <div class="parent-icon"><i class='bx bx-home-alt'></i>
                         </div>
                         <div class="menu-title">Home</div>
@@ -90,7 +90,7 @@
         <!--start header -->
         <header>
             <div class="topbar d-flex align-items-center">
-                <nav class="navbar navbar-expand gap-3">
+                <nav class="navbar navbar-expand gap-3" style="background: #FFC70AFF;">
                     <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
                     </div>
 
@@ -114,7 +114,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="user-box dropdown px-3">
+                    <div class="user-box dropdown px-3" style="border:#FFC70AFF; ">
                         <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">

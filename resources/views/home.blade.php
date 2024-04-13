@@ -8,7 +8,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Total Found items</p>
-                            <h4 class="my-1 text-info">4805</h4>
+                            <h4 class="my-1 text-info">453</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto">
                             <i class="bx bxs-cart"></i>
@@ -23,7 +23,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Total Claimed</p>
-                            <h4 class="my-1 text-danger">$84,245</h4>
+                            <h4 class="my-1 text-danger">291</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto">
                             <i class="bx bxs-wallet"></i>
@@ -37,8 +37,8 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <p class="mb-0 text-secondary">User Count</p>
-                            <h4 class="my-1 text-success">34.6%</h4>
+                            <p class="mb-0 text-secondary">In Storage</p>
+                            <h4 class="my-1 text-success">129</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
                             <i class="bx bxs-bar-chart-alt-2"></i>
@@ -53,7 +53,7 @@
                     <div class="d-flex align-items-center">
                         <div>
                             <p class="mb-0 text-secondary">Total Users</p>
-                            <h4 class="my-1 text-warning">8.4K</h4>
+                            <h4 class="my-1 text-warning">351</h4>
                         </div>
                         <div class="widgets-icons-2 rounded-circle bg-gradient-orange text-white ms-auto">
                             <i class="bx bxs-group"></i>
