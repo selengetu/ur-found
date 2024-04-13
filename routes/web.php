@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/item', [App\Http\Controllers\HomeController::class, 'item'])->name('item');
     Route::get('/claim', [App\Http\Controllers\HomeController::class, 'claim'])->name('claim');
     Route::get('/report', [App\Http\Controllers\HomeController::class, 'report'])->name('report');
+    Route::get('/safety', [App\Http\Controllers\HomeController::class, 'safety'])->name('safety');
     // Add other routes here that require the user to be authenticated.
     Route::get('/logout', function(){
         Auth::logout();
