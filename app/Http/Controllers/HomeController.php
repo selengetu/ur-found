@@ -52,6 +52,9 @@ class HomeController extends Controller
     }
     public function report()
     {
-        return view('report');
+        $campus = DB::table('campus')->orderby('id')->get();
+        $category = DB::table('category')->orderby('id')->get();
+        $item = DB::table('v_lost_items')->orderby('id')->get();
+        return view('report')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
     }
 }

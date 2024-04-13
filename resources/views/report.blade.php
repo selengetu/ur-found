@@ -13,10 +13,9 @@
 							<div class="mb-3">
 								<label for="inputProductTitle" class="form-label">What have you lost?</label>
 								<select class="form-select" id="inputProductType">
-										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+                                @foreach($category as $categories)
+                                        <option value= "{{$categories->id}}">{{$categories->name}}</option>
+                                    @endforeach
 									  </select>
 							  </div>
 							  <div class="mb-3">
@@ -26,10 +25,9 @@
 							  <div class="mb-3">
 								<label for="inputProductTitle" class="form-label">Where did you see it last?</label>
 								<select class="form-select" id="inputProductType">
-										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+                                @foreach($campus as $campus)
+                                        <option value= "{{$campus->id}}">{{$campus->name}}</option>
+                                    @endforeach
 									  </select>
 							  </div>
 							  <div class="mb-3">
