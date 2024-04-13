@@ -79,7 +79,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img class="modal-img" id="modalImg" style="width:300px">
+        <img class="modal-img" id="modalImg" style="width:300px;  margin: 0 auto; ">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
