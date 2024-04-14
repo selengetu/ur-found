@@ -47,7 +47,7 @@
 										<div class="card">
 								<div class="border border-3 p-4 rounded">
                               <div class="row g-3">
-							  <img src="{{$items->img_path}}" alt="product img" style="width:60%"/>
+							  <img src="{{ asset('assets/images/item/' . $items->img_path) }}" alt="product img" style="width:60%"/>
 								<div class="col-md-12">
 									<label for="inputPrice" class="form-label"><b>Category</b>: {{$items->name}}</label>
 								  </div>

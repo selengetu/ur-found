@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use DB;
 
@@ -54,7 +54,39 @@ class HomeController extends Controller
     {
         $campus = DB::table('campus')->orderby('id')->get();
         $category = DB::table('category')->orderby('id')->get();
-        $item = DB::table('v_lost_items')->orderby('id')->get();
+        $userId = Auth::id(); 
+        $item = DB::table('v_lost_items')
+                   ->where('owner_id', $userId) 
+                   ->orderBy('id')
+                   ->get();
         return view('report')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
+    }
+    public function storeReport(Request $request)
+    {
+
+
+        $request->validate([
+            'category_id' => 'required|integer',
+            'description' => 'required|string',
+            'campus_id' => 'required|integer',
+            'lost_date' => 'required|date',
+        ]);
+        $image = $request->file('picture');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/images/item'), $filename);
+        DB::table('lost_items')->insert([
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'location_id' => $request->campus_id,
+            'lost_date' => $request->lost_date,
+            'item_title' => $request->item_title,
+            'status_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+            'owner_id' => Auth::id(),
+            'img_path' => $filename,
+        ]);
+
+        return redirect()->route('report')->with('success', 'Report has been filed.');
     }
 }
