@@ -43,7 +43,7 @@ class HomeController extends Controller
     {
         $campus = DB::table('campus')->orderby('id')->get();
         $category = DB::table('category')->orderby('id')->get();
-        $item = DB::table('v_lost_items')->orderby('id')->get();
+        $item = DB::table('v_found_items')->orderby('id')->get();
         return view('safety')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
     }
     public function claim()
@@ -59,7 +59,8 @@ class HomeController extends Controller
                    ->where('owner_id', $userId) 
                    ->orderBy('id')
                    ->get();
-        return view('report')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
+        $location = DB::table('location')->orderby('id')->get();
+        return view('report')->with(['item'=>$item,'category'=>$category,'campus'=>$campus,'location'=>$location]);
     }
     public function storeReport(Request $request)
     {

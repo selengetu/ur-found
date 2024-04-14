@@ -25,7 +25,7 @@
 								  </div>
 								  <div class="col-md-12">
 									<label for="inputCostPerPrice" class="form-label">Lost Date</label>
-									<input type="date" class="form-control" id="inputCostPerPrice">
+									<input type="date" class="form-control" id="inputCostPerPrice" id="inputDate">
 								  </div>
 								  <div class="mb-3">
 									  <div class="d-grid">
@@ -39,6 +39,7 @@
 	</div>
 	<div class="col-md-8">
 	<div class="card">
+	<div class="card-header"><b>Found Items</b></div>
 					<div class="card-body">
 						
 					
@@ -49,13 +50,13 @@
                               <div class="row g-3">
 							  <img src="{{ asset('assets/images/item/' . $items->img_path) }}" alt="product img" style="width:60%"/>
 								<div class="col-md-12">
-									<label for="inputPrice" class="form-label"><b>Category</b>: {{$items->name}}</label>
+									<label for="inputPrice" class="form-label"><b>Category</b>: {{$items->category_name}}</label>
 								  </div>
 								  <div class="col-md-12">
 									<label for="inputCompareatprice" class="form-label"><b>Description</b>: {{$items->description}}</label>
 								  </div>
 								  <div class="col-md-12">
-									<label for="inputCostPerPrice" class="form-label"><b>Lost Date</b>: {{$items->lost_date}}</label>
+									<label for="inputCostPerPrice" class="form-label"><b>Find Date</b>: {{$items->find_date}}</label>
 								  </div>
 								  <div class="col-md-12">
 									<label for="inputCostPerPrice" class="form-label"><b>On</b>: {{$items->location_name}}</label>
@@ -65,7 +66,7 @@
 									
 								  </div>
 								  <div class="col-md-9">
-									<label for="inputCostPerPrice" class="form-label"><b>Posted at</b>: {{$items->lost_date}}</label><br>
+									<label for="inputCostPerPrice" class="form-label"><b>Posted at</b>: {{$items->find_date}}</label><br>
 									
 								  </div>
 								  <div class="col-md-3">
@@ -92,4 +93,5 @@
     <script src="/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="/assets/plugins/chartjs/js/chart.js"></script>
     <script src="/assets/js/index.js"></script>
+
 @endsection

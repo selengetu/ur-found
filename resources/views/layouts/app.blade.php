@@ -61,7 +61,7 @@
                     <a href="/item">
                         <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
                         </div>
-                        <div class="menu-title">Search</div>
+                        <div class="menu-title">Lost items</div>
                     </a>
                    
                 </li>
@@ -78,7 +78,7 @@
                     <a href="/safety">
                         <div class="parent-icon"><i class="bx bx-lock"></i>
                         </div>
-                        <div class="menu-title">Public Safety</div>
+                        <div class="menu-title">Found items</div>
                     </a>
                  
                 </li>
