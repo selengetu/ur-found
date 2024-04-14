@@ -124,7 +124,7 @@
 											@if($items->status_id == 2)
 												<!-- Button trigger modal for Claim -->
 												<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#claimModal">
-													Claim
+													Found
 												</button>
 											@else
 												<!-- Default text or button if no conditions are met -->

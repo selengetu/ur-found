@@ -37,14 +37,17 @@ class HomeController extends Controller
         $campus = DB::table('campus')->orderby('id')->get();
         $category = DB::table('category')->orderby('id')->get();
         $item = DB::table('v_lost_items')->orderby('id')->get();
-        return view('item')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
+        $userId = Auth::id(); 
+        $location = DB::table('location')->orderby('id')->get();
+        return view('item')->with(['item'=>$item,'category'=>$category,'campus'=>$campus,'location'=>$location]);
     }
     public function safety()
     {
         $campus = DB::table('campus')->orderby('id')->get();
         $category = DB::table('category')->orderby('id')->get();
         $item = DB::table('v_found_items')->orderby('id')->get();
-        return view('safety')->with(['item'=>$item,'category'=>$category,'campus'=>$campus]);
+        $location = DB::table('location')->orderby('id')->get();
+        return view('safety')->with(['item'=>$item,'category'=>$category,'campus'=>$campus,'location'=>$location]);
     }
     public function claim()
     {
@@ -64,8 +67,6 @@ class HomeController extends Controller
     }
     public function storeReport(Request $request)
     {
-
-
         $request->validate([
             'category_id' => 'required|integer',
             'description' => 'required|string',
@@ -89,5 +90,31 @@ class HomeController extends Controller
         ]);
 
         return redirect()->route('report')->with('success', 'Report has been filed.');
+    }
+    public function storeFound(Request $request)
+    {
+        $request->validate([
+            'category_id' => 'required|integer',
+            'description' => 'required|string',
+            'campus_id' => 'required|integer',
+            'lost_date' => 'required|date',
+        ]);
+        $image = $request->file('picture');
+        $filename = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('assets/images/item'), $filename);
+        DB::table('found_items')->insert([
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'pickup_location' => $request->campus_id,
+            'lost_date' => now(),
+            'item_title' => $request->item_title,
+            'status_id' => 2,
+            'created_at' => now(),
+            'updated_at' => now(),
+            'founder_id' => Auth::id(),
+            'img_path' => $filename,
+        ]);
+
+        return redirect()->route('safety')->with('success', 'Report has been filed.');
     }
 }

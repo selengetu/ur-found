@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/report', [App\Http\Controllers\HomeController::class, 'report'])->name('report');
     Route::get('/safety', [App\Http\Controllers\HomeController::class, 'safety'])->name('safety');
     Route::post('/storeReport', [App\Http\Controllers\HomeController::class, 'storeReport'])->name('storeReport');
-    // Add other routes here that require the user to be authenticated.
+    Route::post('/storeFound', [App\Http\Controllers\HomeController::class, 'storeFound'])->name('storeFound');
     Route::get('/logout', function(){
         Auth::logout();
         return redirect('/');
