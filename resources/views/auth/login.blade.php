@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
 	<link href="assets/css/app.css" rel="stylesheet">
 	<link href="assets/css/icons.css" rel="stylesheet">
-	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+	<title>UR FOUND</title>
 </head>
 
 <body class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
@@ -30,8 +30,8 @@
 			<div class="container">
 				<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
 					<div class="col mx-auto">
-						<div class="card mb-0">
-							<div class="card-body">
+						<div class="card mb-0 ">
+							<div class="card-body transparent-card">
 								<div class="p-4">
 									<div class="mb-3 text-center">
 										<img src="assets/images/logo-icon.png" width="60" alt="">
@@ -122,6 +122,22 @@
 	</script>
 	<!--app JS-->
 	<script src="assets/js/app.js"></script>
+	<style>
+        body {
+            background-image: url('assets/images/img.jpg');
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+        }
+		transparent-card {
+		background-color: rgba(255, 255, 255, 0.5); /* White background with 50% opacity */
+		border-radius: 15px; /* Optional: adds rounded corners */
+		padding: 20px; /* Optional: adds padding inside the card */
+	}
 
+	.transparent-card .card-body {
+		color: #333; /* Ensures text is darker and more readable */
+	}
+    </style>
 
 </body></html>

@@ -5,6 +5,8 @@
     <div class="card">
 	<div class="modal fade" id="claimModal" tabindex="-1" aria-labelledby="claimModalLabel" aria-hidden="true">
     <div class="modal-dialog">
+	<form method="POST" action="{{ route('storeLocation') }}" enctype="multipart/form-data">
+    @csrf
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="claimModalLabel">Claim Item</h5>
@@ -12,19 +14,18 @@
             </div>
             <div class="modal-body">
 			<div class="row">
-			
-                         
 							<div class="mb-3">
 								<label for="inputProductTitle" class="form-label">Where do you want to pick your item?</label>
-								<select class="form-select" id="inputProductType">
+								<select class="form-select" id="pick_location_id" name="pick_location_id">
 								@foreach($location as $locations)
                                         <option value= "{{$locations->id}}">{{$locations->name}}</option>
                                     @endforeach
 									  </select>
+									  <input class="form-control" id="l_item_id" name="l_item_id" style="display:none" >
 							  </div>
 							  <div class="mb-3">
 								<label for="inputProductDescription" class="form-label">[Optional] Provide any additional preferences</label>
-								<textarea class="form-control" id="inputProductDescription" rows="3"></textarea>
+								<textarea class="form-control" id="preference" name="preference" rows="3"></textarea>
 							  </div>
 							  <div class="mb-3">
 								<label for="inputProductTitle" class="form-label"><b>We will do our best to deliver to your desired location under 24 hours</b></label>
@@ -34,8 +35,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">Claim</button>
+                <button type="submit" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">Claim</button>
             </div>
+			</form>
         </div>
     </div>
 </div>
@@ -123,7 +125,7 @@
                                             <td>
 											@if($items->status_id == 2)
 												<!-- Button trigger modal for Claim -->
-												<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#claimModal">
+												<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#claimModal" onclick="transfer({{$items->id}})">					
 													Found
 												</button>
 											@else
@@ -154,5 +156,9 @@
     <script src="/assets/plugins/chartjs/js/chart.js"></script>
     <script src="/assets/js/index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+	<script>
+		function transfer(id) {
+			document.getElementById('l_item_id').value = id;
+		}
+</script>
 @endsection

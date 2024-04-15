@@ -45,9 +45,10 @@ class HomeController extends Controller
     {
         $campus = DB::table('campus')->orderby('id')->get();
         $category = DB::table('category')->orderby('id')->get();
+        $litem = DB::table('v_lost_items')->orderby('id')->get();
         $item = DB::table('v_found_items')->orderby('id')->get();
         $location = DB::table('location')->orderby('id')->get();
-        return view('safety')->with(['item'=>$item,'category'=>$category,'campus'=>$campus,'location'=>$location]);
+        return view('safety')->with(['litem'=>$litem,'item'=>$item,'category'=>$category,'campus'=>$campus,'location'=>$location]);
     }
     public function claim()
     {
@@ -93,12 +94,6 @@ class HomeController extends Controller
     }
     public function storeFound(Request $request)
     {
-        $request->validate([
-            'category_id' => 'required|integer',
-            'description' => 'required|string',
-            'campus_id' => 'required|integer',
-            'lost_date' => 'required|date',
-        ]);
         $image = $request->file('picture');
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('assets/images/item'), $filename);
@@ -106,15 +101,44 @@ class HomeController extends Controller
             'category_id' => $request->category_id,
             'description' => $request->description,
             'pickup_location' => $request->campus_id,
-            'lost_date' => now(),
+            'find_date' => now(),
             'item_title' => $request->item_title,
             'status_id' => 2,
             'created_at' => now(),
             'updated_at' => now(),
-            'founder_id' => Auth::id(),
+            'finder_id' => Auth::id(),
             'img_path' => $filename,
         ]);
 
         return redirect()->route('safety')->with('success', 'Report has been filed.');
+    }
+    
+    public function connectLost(Request $request)
+    {
+        DB::table('found_items')->where('id', $request->l_item_id)->update([
+            'lost_item_id' => $request->lost_item_id,
+            'status_id' => 4,
+        ]);
+        if($request->lost_item_id !=0){
+            DB::table('lost_items')->where('id', $request->lost_item_id)->update([
+                'status_id' => 2,
+            ]);
+        }
+      
+        return redirect()->route('safety')->with('success', 'Report has been filed.');
+    }
+    public function storeLocation(Request $request)
+    {
+        DB::table('found_items')->where('id', $request->l_item_id)->update([
+            'pickup_location' => $request->pick_location_id,
+            'preference' => $request->preference,
+            'status_id' => 3,
+        ]);
+            DB::table('lost_items')->where('id', $request->l_item_id)->update([
+                'status_id' => 3,
+            ]);
+  
+      
+        return redirect()->route('report')->with('success', 'Report has been filed.');
     }
 }

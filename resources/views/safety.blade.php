@@ -29,6 +29,7 @@
 								  </div>
 								  <div class="mb-3">
 									  <div class="d-grid">
+								
                                       <button type="button" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">View result</button>
 									  </div>
 								  </div>
@@ -45,7 +46,7 @@
 			<b>Found Items</b>
 			</div>
 			<div class="col-md-2">
-			<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#claimModal">
+			<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#AddModal">
 													Add New Item
 												</button>
 			</div>
@@ -82,7 +83,14 @@
 								  </div>
 								  <div class="col-md-3">
 									  <div class="d-grid">
-                                         <button type="button" class="btn btn-primary" style="background: #FFC70AFF; border:#FFC70AFF">Mark as solved</button>
+									  @if($items->status_id == 3)
+									  <span><b>Delivered</b></span>
+									  @elseif($items->status_id == 4)
+									  <span><b>Notified</b></span>
+									  @else
+									  <button type="button" class="btn btn-primary" style="background: #FFC70AFF; border:#FFC70AFF" data-bs-toggle="modal" data-bs-target="#claimModal" onclick="transfer({{$items->id}})">Mark as solved</button>
+											@endif
+                                      
 									  </div>
 								  </div>
 							  </div> 
@@ -96,7 +104,7 @@
 	</div>
 </div>
 <div class="card">
-	<div class="modal fade" id="claimModal" tabindex="-1" aria-labelledby="claimModalLabel" aria-hidden="true">
+	<div class="modal fade" id="AddModal" tabindex="-1" aria-labelledby="claimModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
 		<form method="POST" action="{{ route('storeFound') }}" enctype="multipart/form-data">
@@ -146,15 +154,59 @@
         </div>
     </div>
 </div>
->
 </div>
-   
-@endsection
 
+<div class="card">
+	<div class="modal fade" id="claimModal" tabindex="-1" aria-labelledby="claimModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+		<form method="POST" action="{{ route('connectLost') }}" enctype="multipart/form-data">
+    @csrf
+            <div class="modal-header">
+                <h5 class="modal-title" id="claimModalLabel">Claim item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+			<div class="row">
+						   <div class="col-lg-10 offset-lg-1">
+							<div class="mb-3">
+								<label for="inputProductTitle" class="form-label">Match lost item</label>
+								<input class="form-control" id="l_item_id" name="l_item_id" style="display:none" >
+								<select class="form-select" id="lost_item_id" name="lost_item_id">
+								<option value= "0">No Record</option>
+                                @foreach($litem as $litems)
+                                        <option value= "{{$litems->id}}">{{$litems->id}}-{{$litems->item_title}}-{{$litems->description}}</option>
+                                    @endforeach
+									  </select>
+							  </div>
+						   </div>
+					   </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">Claim</button>
+            </div>
+			</form>
+        </div>
+    </div>
+</div>
+</div>
+@endsection
+<style>
+	.hidden-input{
+    display: none;
+}
+
+	</style>
 @section('scripts')
     <script src="/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="/assets/plugins/chartjs/js/chart.js"></script>
     <script src="/assets/js/index.js"></script>
+	<script>
+		function transfer(id) {
+			document.getElementById('l_item_id').value = id;
+		}
+</script>
+
 
 @endsection

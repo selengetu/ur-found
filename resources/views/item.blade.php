@@ -51,7 +51,10 @@
 								<div class="border border-3 p-4 rounded">
                               <div class="row g-3">
 							  <img src="{{ asset('assets/images/item/' . $items->img_path) }}" alt="product img" style="width:60%"/>
-								<div class="col-md-12">
+							  <div class="col-md-12">
+									<label for="inputPrice" class="form-label"><b>Name</b>: {{$items->id}} -  {{$items->item_title}}</label>
+								  </div>
+							  <div class="col-md-12">
 									<label for="inputPrice" class="form-label"><b>Category</b>: {{$items->name}}</label>
 								  </div>
 								  <div class="col-md-12">
@@ -71,11 +74,7 @@
 									<label for="inputCostPerPrice" class="form-label"><b>Posted at</b>: {{$items->lost_date}}</label><br>
 									
 								  </div>
-								  <div class="col-md-3">
-									  <div class="d-grid">
-                                         <button type="button" class="btn btn-primary" style="background:#00205BFF;border:#00205BFF;color:white;">Claim</button>
-									  </div>
-								  </div>
+								 
 							  </div> 
 						  </div>
 

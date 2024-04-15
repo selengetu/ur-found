@@ -66,14 +66,7 @@
                    
                 </li>
             
-                <li>
-                    <a href="/claim">
-                        <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
-                        </div>
-                        <div class="menu-title">Claim</div>
-                    </a>
-                 
-                </li>
+               
                 <li>
                     <a href="/safety">
                         <div class="parent-icon"><i class="bx bx-lock"></i>
