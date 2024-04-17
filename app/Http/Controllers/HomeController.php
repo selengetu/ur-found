@@ -141,4 +141,9 @@ class HomeController extends Controller
       
         return redirect()->route('report')->with('success', 'Report has been filed.');
     }
+    public function deleteitem($id)
+    {
+        DB::table('lost_items')->where('id', $id)->delete();
+        return Redirect('report');
+    }
 }

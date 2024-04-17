@@ -112,7 +112,7 @@
 										<th>Description</th>
 										<th>Date</th>
 										<th>On</th>
-										
+										<th>Actions</th>
 									
 									</tr>
 								</thead>
@@ -138,7 +138,11 @@
                                             <td>{{$items->description}}</td>
                                             <td>{{$items->location_name}}</td>
 											<td>{{$items->lost_date}}</td>
-                                            
+                                            <td>
+												<button type="button" class="btn btn-xs btn-outline-danger" onclick="deleteitem({{$items->id}})">
+												<i class="bx bx-trash-alt me-0"></i>
+												</button>
+											</td>
                                         </tr>
                                         <?php $no++; ?>
                                     @endforeach
@@ -160,5 +164,23 @@
 		function transfer(id) {
 			document.getElementById('l_item_id').value = id;
 		}
+		function deleteitem(id) {
+			$.ajax(
+				{
+					url: "item/delete/" + id,
+					type: 'GET',
+					dataType: "JSON",
+					data: {
+						"id": id,
+						"_method": 'DELETE',
+					},
+					success: function () {
+						alert('Item is deleted');
+					}
+
+				});
+			alert('Item is deleted');
+			location.reload();
+					}
 </script>
 @endsection

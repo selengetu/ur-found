@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/storeFound', [App\Http\Controllers\HomeController::class, 'storeFound'])->name('storeFound');
     Route::post('/connectLost', [App\Http\Controllers\HomeController::class, 'connectLost'])->name('connectLost');
     Route::post('/storeLocation', [App\Http\Controllers\HomeController::class, 'storeLocation'])->name('storeLocation');
+    Route::get('/item/delete/{id}', [App\Http\Controllers\HomeController::class, 'deleteitem'])->name('deleteitem');
     Route::get('/logout', function(){
         Auth::logout();
         return redirect('/');
