@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/2.0.4/css/dataTables.dataTables.min.css">
     <div class="card">
 	<div class="modal fade" id="claimModal" tabindex="-1" aria-labelledby="claimModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -102,7 +102,7 @@
 					<div class="card-body">
 						
 						<div class="table-responsive">
-							<table class="table mb-0">
+							<table class="table mb-0" id="myTable">
 								<thead class="table-light">
 									<tr>
 										<th>№</th>
@@ -155,12 +155,16 @@
 @endsection
 
 @section('scripts')
+<script src="//cdn.datatables.net/2.0.4/js/dataTables.min.js"></script>
     <script src="/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
     <script src="/assets/plugins/chartjs/js/chart.js"></script>
     <script src="/assets/js/index.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
+		
+        let table = new DataTable('#myTable');
+
 		function transfer(id) {
 			document.getElementById('l_item_id').value = id;
 		}

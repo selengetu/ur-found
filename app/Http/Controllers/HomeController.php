@@ -146,4 +146,19 @@ class HomeController extends Controller
         DB::table('lost_items')->where('id', $id)->delete();
         return Redirect('report');
     }
+    public function searchItem(Request $request)
+    {
+        $categoryId = $request->input('s_category_id');
+        $campusId = $request->input('s_campus_id');
+        $lostDate = $request->input('s_lost_date');
+        $item =  DB::table('v_lost_items')->where('category_id', $categoryId)
+                     ->where('location_id', $campusId)
+                     ->whereDate('lost_date', $lostDate)
+                     ->get();
+        $campus = DB::table('campus')->orderby('id')->get();
+        $category = DB::table('category')->orderby('id')->get();
+        $userId = Auth::id(); 
+        $location = DB::table('location')->orderby('id')->get();
+        return view('searchitem')->with(['item'=>$item,'category'=>$category,'campus'=>$campus,'location'=>$location]);
+    }
 }
